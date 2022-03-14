@@ -1,0 +1,19 @@
+name: Whitesource Unified Agent Scan - Java
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:      
+      - name: WhiteSource Unified Agent Scan
+        env:
+          WS_APIKEY: ${{secrets.APIKEY}}
+          WS_WSS_URL: https://saas.whitesourcesoftware.com/agent
+          WS_PRODUCTNAME: RubyOdinProject
+          WS_PROJECTNAME: RubyOdinProject
+        run: |
+          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
+          echo Unified Agent downloaded successfully
+          java -jar wss-unified-agent.jar
