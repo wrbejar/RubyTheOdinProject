@@ -15,24 +15,25 @@ jobs:
       - image: cimg/ruby:2.7.4
     executor: ruby/default
     steps:
-      - checkout
-      -  run:
-          name: Which bundler?
-          command:  |
-            cd /tmp/circle-artifacts
-            pwd
-            ls
-#          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
-#          gem install bundler:1.17.3
-#          bundle -v 
-#          bundle install      
-#          echo Unified Agent downloaded successfully
-#          java -jar wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
-      
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  build_and_scan: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - build
+      - run:
+          name: Creating Dummy Artifacts
+          command: |
+            echo "my artifact file" > /tmp/artifact-1;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
+
+      - store_artifacts:
+          path: /tmp/artifact-1
+          destination: artifact-file
+
+      - store_artifacts:
+         path: /tmp/artifacts 
+      - run:
+          name: list files
+          command: |
+           pwd
+           ls
+
+          
+        
+
