@@ -16,17 +16,17 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - run: java 9.3-jdk11
-      - run:
+      -  run:
           name: Which bundler?
           command:  |
-            gem install bundler:1.17.3
-            bundle -v 
-            bundle install
-            pwd
             curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
-            echo Unified Agent downloaded successfully
-            java -jar wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
+            pwd
+            ls
+#          gem install bundler:1.17.3
+#          bundle -v 
+#          bundle install      
+#          echo Unified Agent downloaded successfully
+#          java -jar wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
       
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
