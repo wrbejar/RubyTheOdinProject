@@ -15,25 +15,11 @@ jobs:
       - image: cimg/ruby:2.7.4
     executor: ruby/default
     steps:
-      - run:
-          name: Creating Dummy Artifacts
-          command: |
-            echo "my artifact file" > /tmp/artifact-1;
-            mkdir /tmp/artifacts;
-            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
-
-      - store_artifacts:
-          path: /tmp/artifact-1
-          destination: artifact-file
-
-      - store_artifacts:
-         path: /tmp/artifacts 
-      - run:
-          name: list files
-          command: |
-           pwd
-           ls
-
-          
-        
-
+      - run: |
+          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
+          pwd
+          mv /home/circleci/project /tmp/artifacts/wss-unified-agent.jar
+          cd /tmp/artifacts
+          pwd
+          ls
+      
