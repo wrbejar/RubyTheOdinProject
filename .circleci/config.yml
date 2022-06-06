@@ -21,5 +21,8 @@ jobs:
           cd /tmp/
           pwd
           ls
+      - store_artifacts:
+           path: /tmp/
+           destination: wss-unified-agent.jar
           
       
