@@ -16,6 +16,7 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
+      - run: java 9.3-jdk11
       - run:
           name: Which bundler?
           command:  |
