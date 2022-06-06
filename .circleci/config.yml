@@ -17,40 +17,24 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          curl -LJO https://drive.google.com/file/d/1chc3wFYj5DPwWre19q_zmhb9W823L1sg/view?usp=sharing --output /tmp/java.exe
-          cd /tmp/
+          curl -LJO https://drive.google.com/file/d/1chc3wFYj5DPwWre19q_zmhb9W823L1sg/view?usp=sharing --output ./java.exe
           pwd
           ls
       - store_artifacts:
-           path: /tmp/
+           path: ./
            destination: java.exe
       - run: |
-          pwd
-          ls
-      - run: |
-          curl -LJO https://drive.google.com/file/d/1chc3wFYj5DPwWre19q_zmhb9W823L1sg/view?usp=sharing --output /tmp/java.exe
-          cd /tmp/
+          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar --output ./wss-unified-agent.jar
           pwd
           ls
       - store_artifacts:
-           path: /tmp/
-           destination: java.exe
-      - run: |
-          pwd
-          ls    
-      - run: |
-          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar --output /tmp/wss-unified-agent.jar
-          cd /tmp/
-          pwd
-          ls
-      - store_artifacts:
-           path: /tmp/
+           path: ./
            destination: wss-unified-agent.jar
       - run: |
           pwd
           ls
       - run: |
-          /tmp/java -jar wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
+          ./java -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
 
 
     
