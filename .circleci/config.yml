@@ -14,13 +14,12 @@ jobs:
     docker:
       - image: cimg/ruby:2.7.4
     executor: ruby/default
+    working_directory: /tmp
     steps:
       - run: |
-          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
-          pwd
-          mkdir /tmp/artifacts
-          mv /home/circleci/project/wss-unified-agent.jar /tmp/artifacts/wss-unified-agent.jar
-          cd /tmp/artifacts
+          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar --output /tmp/wss-unified-agent.jar
+          cd /tm/
           pwd
           ls
+          
       
