@@ -24,5 +24,8 @@ jobs:
       - store_artifacts:
            path: /tmp/
            destination: wss-unified-agent.jar
+      - run: |
+          pwd
+          ls
           
       
