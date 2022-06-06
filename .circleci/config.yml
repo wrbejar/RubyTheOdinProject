@@ -18,7 +18,7 @@ jobs:
     steps:
       - run: |
           curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar --output /tmp/wss-unified-agent.jar
-          cd /tm/
+          cd /tmp/
           pwd
           ls
           
