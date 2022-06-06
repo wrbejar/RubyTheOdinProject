@@ -19,6 +19,7 @@ jobs:
       -  run:
           name: Which bundler?
           command:  |
+            cd /tmp/circle-artifacts
             pwd
             ls
 #          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
