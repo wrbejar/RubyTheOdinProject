@@ -19,7 +19,7 @@ jobs:
           curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
           pwd
           mkdir /tmp/artifacts
-          mv /home/circleci/project /tmp/artifacts/wss-unified-agent.jar
+          mv /home/circleci/project/wss-unified-agent.jar /tmp/artifacts/wss-unified-agent.jar
           cd /tmp/artifacts
           pwd
           ls
