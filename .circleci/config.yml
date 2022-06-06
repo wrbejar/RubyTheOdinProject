@@ -1,75 +1,31 @@
----
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-executors:
-  rails-executor:
-    docker:
-      - image: circleci/ruby:2.7.4-buster-node-browsers
-        environment:
-          RAILS_ENV: test
-          POSTGRES_USERNAME: postgres
-          POSTGRES_PASSWORD: password
-      - image: circleci/redis:alpine
-      - image: circleci/postgres:12.2-ram
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
-          POSTGRES_DB: theodinproject_test
-    working_directory: ~/theodinproject
+# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
+# See: https://circleci.com/docs/2.0/orb-intro/
+orbs:
+  ruby: circleci/ruby@1.4.0
 
-commands:
-  build-app:
-    description: Building app
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:2.7.4
+    executor: ruby/default
     steps:
       - checkout
-
-      - run: gem install bundler:1.17.3
-      - restore_cache:
-          name: Restore bundle cache
-          key: theodinproject-bundle-{{ checksum "Gemfile.lock" }}
-      - restore_cache:
-          name: Restore yarn cache
-          key: theodinproject-yarn-{{ checksum "yarn.lock" }}
-      - run: bundle install --path vendor/bundle
-      - run: yarn install
-      - save_cache:
-          name: Store bundle cache
-          key: theodinproject-bundle-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-      - save_cache:
-          name: Store yarn cache
-          key: theodinproject-yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.yarn-cache
-      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run: bundle exec rake db:schema:load
-
-jobs:
-  tests:
-    executor: rails-executor
-    steps:
-      - build-app
-      - run: yarn test
-      - run: bundle exec rspec
-  linters:
-    executor: rails-executor
-    steps:
-      - build-app
-      - run: bundle exec rubocop
-      - run: yarn run eslint
-  seeds:
-    executor: rails-executor
-    steps:
-      - build-app
       - run:
-          name: Seeds
-          command: bin/rails db:seed
-
+          name: Which bundler?
+          command:  |
+            bundle -v 
+            bundle install
+      
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  version: 2
-  build:
+  build_and_scan: # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - tests
-      - linters
-      - seeds
+      - build 
