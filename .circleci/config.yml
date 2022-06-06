@@ -17,12 +17,12 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          curl -LJO https://drive.google.com/file/d/1chc3wFYj5DPwWre19q_zmhb9W823L1sg/view?usp=sharing --output ./java.exe
+          curl -LJO https://drive.google.com/file/d/1HtoUZI20lO2a1Omn5n7V7mxGiIOhLWrw/view?usp=sharing --output ./javac
           pwd
           ls
       - store_artifacts:
            path: ./
-           destination: java.exe
+           destination: javac
       - run: |
           curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar --output ./wss-unified-agent.jar
           pwd
@@ -34,7 +34,7 @@ jobs:
           pwd
           ls
       - run: |
-          ./java -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
+          ./javac -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
 
 
     
