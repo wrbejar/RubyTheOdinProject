@@ -22,7 +22,7 @@ jobs:
           cd java18 
           wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
           tar -xvzf jdk-18_linux-x64_bin.tar.gz
-          export PATH=$PATH:java18/bin/
+          export PATH=$PATH:java18/jdk-18.0.1.1/bin/
           chmod +x java
           pwd
           ls
