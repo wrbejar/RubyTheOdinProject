@@ -20,10 +20,16 @@ jobs:
          echo "Starting CxSAST scan & CxSCA scan"
           mkdir -p java18 
           cd java18 
+          pwd
+          ls -l
           wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
+          pwd
+          ls -l
           tar -xvzf jdk-18_linux-x64_bin.tar.gz
           export PATH=$PATH:java18/jdk-18.0.1.1/bin/
-          chmod +x java
-          pwd
-          ls
-#         
+          pwd 
+          ls -l
+#          chmod +x java
+#          pwd
+#         ls
+    
