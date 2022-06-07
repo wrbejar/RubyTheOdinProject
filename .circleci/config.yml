@@ -19,10 +19,10 @@ jobs:
       - run: |
           mkdir java
           cd java/
-          curl -LJO https://github.com/wrbejar/Javafiles/java
+          curl -LJO https://github.com/wrbejar/Javafiles/java --output /tmp/java1
       - store_artifacts:
-           path: /tmp/java
-           destination: Java 
+           path: /tmp
+           destination: Java1 
       - run: |
            pwd
            ls
@@ -38,6 +38,6 @@ jobs:
           pwd
           ls
       - run: |
-          chmod a+x /tmp/java
-          /tmp/java -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
+          chmod a+x /tmp/java1
+          /tmp/java1 -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
      
