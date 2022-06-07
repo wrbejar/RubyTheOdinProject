@@ -40,6 +40,7 @@ jobs:
           pwd
           ls
       - run: |
-          chmod 777 /tmp/javaexec/javac
-          /tmp/javaexec/javac -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
+          cd /tmp/javaexec
+          chmod 777 javac
+          javac -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
      
