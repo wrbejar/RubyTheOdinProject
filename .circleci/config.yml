@@ -24,6 +24,7 @@ jobs:
             ls -l
             cd /home/circleci/project/
             sudo chmod 777 java
+            export PATH=$PATH:/home/circleci/project/
             pwd
             ls
       - run:
