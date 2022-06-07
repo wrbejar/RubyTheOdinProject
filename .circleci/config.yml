@@ -33,7 +33,6 @@ jobs:
           sudo chmod 777 java
           pwd
           ls
-           - checkout
       - run:
           name: Which bundler?
           command:  |
