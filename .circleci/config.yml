@@ -45,5 +45,5 @@ jobs:
           ls -l
           sudo chmod 777 java
           ls -l
-      - run: sudo java -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
+      - run: /tmp/java -jar /tmp/wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
      
