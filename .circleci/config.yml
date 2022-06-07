@@ -18,6 +18,7 @@ jobs:
     steps:
       - run: |
           curl -LJO https://drive.google.com/file/d/1HtoUZI20lO2a1Omn5n7V7mxGiIOhLWrw/view?usp=sharing --output ./javac
+          mv ./'view?usp=sharing' ./javac
           pwd
           ls
       - store_artifacts:
