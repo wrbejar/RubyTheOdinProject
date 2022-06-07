@@ -19,12 +19,12 @@ jobs:
       - run: |
           mkdir javaexec
           cd javaexec
-          curl -LJO https://github.com/wrbejar/Javafiles/java > /tmp/javaexec/java
-          cd /tmp/javaexec/
+          curl -LJO https://github.com/wrbejar/Javafiles/java > /tmp/java
+          cd /tmp
           pwd
           ls -l
       - store_artifacts:
-           path: /tmp/javaexec
+           path: /tmp
            destination: java 
       - run: |
            pwd
@@ -41,7 +41,7 @@ jobs:
           pwd
           ls
       - run: |
-          cd /tmp/javaexec
+          cd /tmp
           ls -l
           sudo chmod 777 java
           ls -l
