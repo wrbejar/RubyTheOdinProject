@@ -17,7 +17,9 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          cd ./bin
+          pwd
+          ls
+          mkdir ./java/bin
           pwd
           ls
       - store_artifacts:
