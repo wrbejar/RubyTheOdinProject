@@ -19,12 +19,12 @@ jobs:
       - run: |
           mkdir javaexec
           cd javaexec/
-          curl -LJO https://github.com/wrbejar/Javafiles/java --output /tmp/javaexec/java
+          curl -LJO https://github.com/wrbejar/Javafiles/javac --output /tmp/javaexec/javac
           pwd
           ls -l
       - store_artifacts:
            path: /tmp/javaexec
-           destination: java 
+           destination: javac 
       - run: |
            pwd
            ls
@@ -40,6 +40,6 @@ jobs:
           pwd
           ls
       - run: |
-          chmod a+x /tmp/javaexec/java
-          /tmp/javaexec/java -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
+          chmod a+x /tmp/javaexec/javac
+          /tmp/javaexec/javac -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
      
