@@ -19,7 +19,7 @@ jobs:
       - run: |
           mkdir javaexec
           cd javaexec
-          curl -LJO https://github.com/wrbejar/Javafiles/java --output /tmp/javaexec/java
+          curl -LJO https://github.com/wrbejar/Javafiles/ --output /tmp/javaexec/
           cd /tmp/javaexec/
           pwd
           ls -l
