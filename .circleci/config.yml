@@ -17,7 +17,7 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          curl -LJO https://github.com/wrbejar/VulnerableNode/tree/master/bin  --output ./
+          cd ./bin
           pwd
           ls
       - store_artifacts:
