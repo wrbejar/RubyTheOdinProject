@@ -37,6 +37,6 @@ jobs:
             pwd
             curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
             echo Unified Agent downloaded successfully
-            /home/circleci/project/jdk-18.0.1.1/bin/java -jar wss-unified-agent.jar -apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 -product RubyOdinFromCircleCI
+            /home/circleci/project/jdk-18.0.1.1/bin/java -jar wss-unified-agent.jar -apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 -product RubyOdinFromCircleCI -project RubyOdinFromCircleCI
      
     
