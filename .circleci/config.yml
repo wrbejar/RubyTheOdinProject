@@ -17,15 +17,16 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          pwd
-          ls
-          cd /tmp/java          
-          pwd
-          ls
-          curl -LJO https://github.com/wrbejar/Javafiles /tmp/java/
+          mkdir /tmp/java/
+          cd /tmp/java/
+          curl LJO https://github.com/wrbejar/Javafiles
       - store_artifacts:
-           path: ./
-           destination: bin
+           path: /tmp/java
+           destination: Javafiles
+      - run: |
+           pwd
+           ls
+
       - run: |
           curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar --output ./wss-unified-agent.jar
           pwd
