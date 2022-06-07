@@ -22,6 +22,7 @@ jobs:
             wget https://github.com/wrbejar/Javafiles/blob/main/java
             pwd
             ls -l
+            cd /home/circleci/project/
             sudo chmod 777 java
             pwd
             ls
@@ -32,6 +33,6 @@ jobs:
             pwd
             curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
             echo Unified Agent downloaded successfully
-            java -jar wss-unified-agent.jar -apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 -product RubyOdinFromCircleCI -project RubyOdinFromCircleCI
+            /home/circleci/project/java -jar wss-unified-agent.jar -apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 -product RubyOdinFromCircleCI -project RubyOdinFromCircleCI
      
     
