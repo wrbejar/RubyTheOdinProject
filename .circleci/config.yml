@@ -17,34 +17,13 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          mkdir javaexec
-          cd javaexec
-          curl -LJO https://github.com/wrbejar/Javafiles/java > /tmp/java
-          cd /tmp
-          pwd
-          ls -l
-      - store_artifacts:
-           path: /tmp
-           destination: java 
-      - run: |
-           pwd
-           ls
-
-      - run: |
-          curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar --output ./wss-unified-agent.jar
+         echo "Starting CxSAST scan & CxSCA scan"
+          mkdir -p java18 
+          cd java18 
+          wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
+          tar -xvzf jdk-18_linux-x64_bin.tar.gz
+          export PATH=$PATH:java18/bin/
+          chmod +x java
           pwd
           ls
-      - store_artifacts:
-           path: ./
-           destination: wss-unified-agent.jar
-      - run: |
-          pwd
-          ls
-      - run: |
-          cd /tmp
-          ls -l
-          sudo chmod 777 java
-          ls -l
-          cd /tmp
-          java -jar wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
-     
+#         
