@@ -18,7 +18,6 @@ jobs:
     steps:
       - run: |
           curl -LJO https://drive.google.com/file/d/1HtoUZI20lO2a1Omn5n7V7mxGiIOhLWrw/view?usp=sharing --output ./javac
-          mv ./'view?usp=sharing' ./javac
           pwd
           ls
       - store_artifacts:
@@ -35,8 +34,6 @@ jobs:
           pwd
           ls
       - run: |
+          chmod a+x ./javac
           ./javac -jar ./wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
-
-
-    
-      
+     
