@@ -19,7 +19,7 @@ jobs:
       - run: |
           mkdir java
           cd java/
-          curl LJO https://github.com/wrbejar/Javafiles
+          curl -LJO https://github.com/wrbejar/Javafiles
       - store_artifacts:
            path: /tmp/java
            destination: Javafiles
