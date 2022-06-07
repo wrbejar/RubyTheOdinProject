@@ -27,7 +27,6 @@ jobs:
             ls -l
             tar -xvzf jdk-18_linux-x64_bin.tar.gz
             export PATH=$PATH:/tmp/java18/jdk-18.0.1.1/bin/
-            cd /tmp/java18/jdk-18.0.1.1/bin/
             pwd 
             ls -l
             sudo chmod 777 java
