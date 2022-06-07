@@ -19,7 +19,7 @@ jobs:
       - run: |
           pwd
           ls
-          mkdir /java/bin
+          mkdir /tmp/java
           pwd
           ls
       - store_artifacts:
