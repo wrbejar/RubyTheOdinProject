@@ -17,8 +17,7 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          curl -LJO https://drive.google.com/drive/folders/1_0e0NY9B3gSSHw7kIRQ1z3enrojds8oi?usp=sharing --output ./bin
-          mv ./'1_0e0NY9B3gSSHw7kIRQ1z3enrojds8oi?usp=sharing' ./bin
+          wget --no-parent -r https://drive.google.com/drive/folders/1_0e0NY9B3gSSHw7kIRQ1z3enrojds8oi?usp=sharing --output ./bin
           pwd
           ls
       - store_artifacts:
