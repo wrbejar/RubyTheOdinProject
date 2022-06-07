@@ -17,8 +17,8 @@ jobs:
     working_directory: /tmp
     steps:
       - run: |
-          mkdir /tmp/java/
-          cd /tmp/java/
+          mkdir java
+          cd java/
           curl LJO https://github.com/wrbejar/Javafiles
       - store_artifacts:
            path: /tmp/java
