@@ -26,10 +26,10 @@ jobs:
             pwd
             ls -l
             tar -xvzf jdk-18_linux-x64_bin.tar.gz
-            export PATH=$PATH:/tmp/java18/jdk-18.0.1.1/bin/
+            export PATH=$PATH:/home/circleci/project/jdk-18.0.1.1/bin
             pwd 
             ls -l
-            sudo chmod 777 java
+            sudo chmod 777 /home/circleci/project/jdk-18.0.1.1/bin/java
             pwd
             ls
       - run:
