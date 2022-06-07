@@ -18,8 +18,9 @@ jobs:
     steps:
       - run: |
           mkdir javaexec
-          cd javaexec/
+          cd javaexec
           curl -LJO https://github.com/wrbejar/Javafiles/java --output /tmp/javaexec/java
+          cd /tmp/javaexec/
           pwd
           ls -l
       - store_artifacts:
