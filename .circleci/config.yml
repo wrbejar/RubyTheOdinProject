@@ -19,9 +19,6 @@ jobs:
       - run:
           name: Which bundler?
           command:  |
-            gem install bundler:1.17.3
-            bundle -v 
-            bundle install
             wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
             pwd
             ls -l
@@ -29,15 +26,17 @@ jobs:
             export PATH=$PATH:/home/circleci/project/jdk-18.0.1.1/bin
             pwd 
             ls -l
-            sudo chmod 777 /home/circleci/project/jdk-18.0.1.1/bin/java
+            cd /home/circleci/project/jdk-18.0.1.1/bin/
+            sudo chmod 777 java
             pwd
             ls
+
       - run:
           name: Which bundler?
           command:  |
             pwd
             curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
             echo Unified Agent downloaded successfully
-            ./jdk-18.0.1.1/bin/java -jar wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
+            /home/circleci/project/jdk-18.0.1.1/bin/java -jar wss-unified-agent.jar apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 product RubyOdinFromCircleCI
      
     
