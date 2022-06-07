@@ -16,6 +16,7 @@ jobs:
     executor: ruby/default
     working_directory: /tmp
     steps:
+      - checkout
       - run: |
          echo "Starting CxSAST scan & CxSCA scan"
           mkdir -p java18 
@@ -33,7 +34,6 @@ jobs:
           sudo chmod 777 java
           pwd
           ls
-      - checkout    
       - run:
           name: Which bundler?
           command:  |
