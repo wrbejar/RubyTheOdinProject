@@ -23,10 +23,10 @@ jobs:
             pwd
             ls -l
             tar -xvzf jdk-18_linux-x64_bin.tar.gz
-            cd /home/circleci/project/
-            export PATH=$PATH:/tmp/java18/jdk-18.0.1.1/bin/
-            sudo chmod 777 java
-            export PATH=$PATH:/home/circleci/project/
+            export PATH=$PATH:/home/circleci/project/jdk-18.0.1.1/bin
+            pwd 
+            ls -l
+            sudo chmod 777 /home/circleci/project/jdk-18.0.1.1/bin/java
             pwd
             ls
       - run:
@@ -37,4 +37,4 @@ jobs:
             echo Unified Agent downloaded successfully
             pwd 
             ls -l
-            /home/circleci/project/java -jar wss-unified-agent.jar -apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 -product RubyOdinFromCircleCI -project RubyOdinFromCircleCI
+            /home/circleci/project/jdk-18.0.1.1/bin/java -jar wss-unified-agent.jar -apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 -product RubyOdinFromCircleCI -project RubyOdinFromCircleCI
