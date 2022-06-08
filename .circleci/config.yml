@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Which bundler?
           command:  |
-            wget https://github.com/wrbejar/Javafiles/blob/main/java
+            wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
             pwd
             ls -l
             cd /home/circleci/project/
