@@ -22,7 +22,9 @@ jobs:
             wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
             pwd
             ls -l
+            tar -xvzf jdk-18_linux-x64_bin.tar.gz
             cd /home/circleci/project/
+            export PATH=$PATH:/tmp/java18/jdk-18.0.1.1/bin/
             sudo chmod 777 java
             export PATH=$PATH:/home/circleci/project/
             pwd
