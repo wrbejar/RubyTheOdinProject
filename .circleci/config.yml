@@ -1,12 +1,10 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. 
+# Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   ruby: circleci/ruby@1.4.0
-
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -17,8 +15,20 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Which bundler?
+          name: Install NPM
           command:  |
+            curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+            npm install
+      - run: 
+          name: install Bundler
+          command: |
+            gem install bundler:1.17.3
+            bundle -v 
+            bundle install
+      - run: 
+          name: Download & Untar JDK
+          command: |      
             wget https://download.oracle.com/java/18/latest/jdk-18_linux-x64_bin.tar.gz
             pwd
             ls -l
@@ -26,15 +36,19 @@ jobs:
             export PATH=$PATH:/home/circleci/project/jdk-18.0.1.1/bin
             pwd 
             ls -l
-            sudo chmod 777 /home/circleci/project/jdk-18.0.1.1/bin/java
+      - run: 
+         name: Download & Untar JDK
+         command: |
+            cd /home/circleci/project/jdk-18.0.1.1/bin/
+            sudo chmod 777 java
             pwd
             ls
       - run:
-          name: Which bundler?
+          name: Download .jar file & Execute MEND Scan
           command:  |
             pwd
             curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
             echo Unified Agent downloaded successfully
-            pwd 
-            ls -l
             /home/circleci/project/jdk-18.0.1.1/bin/java -jar wss-unified-agent.jar -apiKey edf10bdd3442429aaf134d300e98c9621ce1f079cd094591a11c91f8f0decab3 -product RubyOdinFromCircleCI -project RubyOdinFromCircleCI
+     
+    
