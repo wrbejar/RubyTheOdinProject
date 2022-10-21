@@ -111,7 +111,7 @@ GEM
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
-    cancancan (3.3.0)
+    cancancan (3.4.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -553,7 +553,7 @@ DEPENDENCIES
   better_errors (~> 2.9)
   bootsnap (~> 1.10)
   bootstrap (= 4.6.0)
-  cancancan (~> 3.3)
+  cancancan (~> 3.4)
   capybara (~> 3.36)
   climate_control (~> 1.0)
   cuprite (~> 0.13)
